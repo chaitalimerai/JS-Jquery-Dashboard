@@ -1,0 +1,80 @@
+// Global styles goes here
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  @include hw(100%, 100%);
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  font-family: $font-base;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $font-line-height;
+  background-color: lighten($primary, 40%);
+  overflow: hidden;
+}
+input, button
+{
+  outline: 0;
+}
+input[type="radio"]{
+// input[type="checkbox"] {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+a,
+label {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+
+/*========Main Wrapper========*/
+#main-wrapper {
+  @include hw(100%, 100%);
+  @include flex-properties(flex, column, null, null, null, null);
+}
+
+/*========Wrapper========*/
+#wrapper {
+  @include flex-properties(flex, column, null, null, null, null);
+  @include hw(100%, 100%);
+  background-color: lighten($dark, 10%);
+}
+
+/*========Content Wrapper========*/
+#content-wrapper {
+  @include hw(100%, 100%);
+  @include flex-properties(flex, null, null, null, null, null);
+  position: relative;
+}
+
+
+

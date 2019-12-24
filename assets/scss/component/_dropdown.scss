@@ -1,0 +1,59 @@
+.dropdown-group {
+  @include flex-properties(flex, null, null, null, center, null);
+  @include hw($content-header, null);
+  border-right: 1px solid darken($gray, 10%);
+  border-bottom: 1px solid darken($gray, 10%);
+  @media (max-width: map_get($breakpoints, "md")) {
+    padding: 0 10px;
+    width: 100%;
+    border: 0;
+  }
+}
+
+.dropdown {
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown-toggle {
+  @include flex-properties(flex, null, null, space-between, center, null);
+  padding: 0 5px;
+  @include hw(null, 100%);
+  cursor: pointer;
+  border: 1px solid $white;
+  background-color: lighten($dark, 10%);
+  .user-label {
+    margin-right: 10px;
+    color: $white;
+    white-space: nowrap;
+    font-weight: 400;
+  }
+  .down-icon {
+    color: $white;
+    font-size: 24px;
+  }
+}
+
+.dropdown-menu {
+  @include hw(null, 100%);
+  display: none;
+  position: absolute;
+  top: 26px;
+  z-index: 10;
+  background-color: lighten($dark, 10%);
+  border-left: 1px solid $white;
+  border-right: 1px solid $white;
+  border-bottom: 1px solid $white;
+
+  .dropdown-item {
+    text-align: left;
+    color: $white;
+    font-weight: 400;
+    padding: 5px;
+    display: block;
+    &:hover,
+    &:active {
+      background-color: $danger;
+    }
+  }
+}

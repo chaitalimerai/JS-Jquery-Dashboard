@@ -1,18 +1,368 @@
 <!DOCTYPE html>
-<html>
-<head>
-<style>
-body
-{
-Background-color:red;
-}	
-</style>
-<title>Page Title</title>
-</head>
-<body>
+<html lang="en">
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery</title>
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- DatePicker UI -->
+    <link rel="stylesheet" href="./assets/vendor/css/jquery-ui.css">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.min.css">
+</head>
+
+<body>
+    <!-- Main Wrapper-->
+    <section id="main-wrapper" class="main-wrapper">
+        <!-- Header -->
+        <header id="main-header" class="main-header">
+            <div class="toggle-bar" id="toggle-bar">
+                <span class="fa fa-bars fa-fw"></span>
+            </div>
+            <img src="assets/image/user-profile.png" class="user-profile" alt="User Profile">
+        </header>   
+        <!-- End: Header -->
+
+        <!-- Wrapper-->
+        <main id="wrapper">
+            <!-- Content-Header -->
+            <div class="content-header">
+                <div class="page-title">
+                    <span class="edit-title"><em>Edit</em></span>
+                    <input type="text" id="editTitle" class="title-form-control" placeholder="Page Title value">
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-light" onclick="resetText();">Delete</button>
+                    <button type="button" onclick="updateText();" class="btn btn-light">Save</button>
+                </div>
+                <div class="dropdown-group">
+                    <div class="dropdown">
+                        <div class="dropdown-toggle" id="dropdownToggle" onclick="toggleDropdown('#dropdownToggle1');">
+                            <span class="user-label">More Actions</span>
+                            <span class="fa fa-angle-down fa-lg down-icon" id="down-icon"></span>
+                        </div>
+                        <div class="dropdown-menu" id="dropdownToggle1">
+                            <a class="dropdown-item" href="#">Jwan Duncan</a>
+                            <a class="dropdown-item" href="#">Sally Willis</a>
+                            <a class="dropdown-item" href="#">Lilly Thronton</a>
+                        </div>
+                    </div>
+                    <div class="setting-bar" id="setting-bar">
+                        <span class="fa fa-cog fa-fw fa-lg setting-icon" id="toggleRightSidebar"></span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Content-Header -->
+
+            <!-- Content-Wrapper -->
+            <section id="content-wrapper" class="content-wrapper">
+                <!-- Left Sidebar -->
+                <nav id="primary-nav" class="primary-nav primarynav">
+                    <ul class="primary-menu" id="nav">
+                        <li id="openLeftSidebar">
+                            <a class="nav-link">
+                                <span class="nav-icon fa fa-plus fa-fw" aria-hidden="true"></span>
+                                <span class="nav-list-item">Add Element</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link active">
+                                <span class="nav-icon fa fa-undo fa-fw" aria-hidden="true"></span>
+                                <span class="nav-list-item">Undo</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link">
+                                <span class="nav-icon fa fa-repeat fa-fw" aria-hidden="true"></span>
+                                <span class="nav-list-item">Redo</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link">
+                                <span class="nav-icon fa fa-th fa-fw" aria-hidden="true"></span>
+                                <span class="nav-list-item">Grid</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link">
+                                <span class="nav-icon fa fa-desktop fa-fw" aria-hidden="true"></span>
+                                <span class="nav-list-item">View</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link">
+                                <span class="nav-icon fa fa-pencil fa-fw" aria-hidden="true"></span>
+                                <span class="nav-list-item">Edit</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link">
+                                <span class="nav-icon fa fa-language fa-fw" aria-hidden="true"></span>
+                                <span class="nav-list-item">Language</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End: Left Sidebar -->
+
+                <!-- Add Element Menu -->
+                <nav id="sub-nav" class="sub-nav">
+                    <ul class="sub-menu" id="nav">
+                        <li class="menu-list-item">
+                            <span class="nav-item">Add element</span>
+                            <span class="fa fa-times nav-item" id="closeLeftSidebar"></span>
+                        </li>
+                        <li class="menu-list-item">
+                            <input type="search" placeholder="Search elements" class="form-control"
+                                name="search-elements" id="search-elements">
+                            <span class="fa fa-search search-icon"></span>
+                        </li>
+                        <li class="nav-group">
+                            <h5 class="nav-title">Blocks</h5>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Text Block</h5>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Custom Heading</h5>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Button</h5>
+                        </li>
+                        <li class="nav-group">
+                            <h5 class="nav-title">Paragraphs</h5>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Line/Separator</h6>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Image</h6>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Gallery</h6>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Carousel</h6>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Table</h6>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Related content</h6>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Social Media Links</h6>
+                        </li>
+                        <li class="nav-group">
+                            <div class="nav-item-img"></div>
+                            <h5 class="nav-group-title">Banner</h6>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End: Add Element Menu -->
+
+                <!-- Content-Body -->
+                <article class="content-body">
+                    <h1 class="content-title" id="content-title">Page Title Value</h1>
+                    <div class="row">
+                        <p class="content-desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quidem
+                            aliquam quis reprehenderit
+                            dicta accusamus ipsam rem iste, neque iusto, aperiam quia debitis repellat ex repudiandae
+                            optio
+                            magnam consequatur ut quae dolores sequi numquam saepe ducimus
+                            facere? Aliquid temporibus totam atque culpa! Sed magnam vitae totam vero enim dolor error
+                            est rem
+                            perspiciatis cum impedit iure tempora, quisquam, molestias doloremque a voluptas nulla.
+                            Neque, est
+                            voluptatem repellendus officiis suscipit
+                            ratione in quam maxime eos dolorem labore maiores alias, omnis natus facere quos optio
+                            repudiandae
+                            delectus dolorum culpa! Velit, doloribus eaque architecto atque excepturi quos ullam vitae
+                            accusamus
+                            similique illo minima quidem exercitationem
+                            in, incidunt voluptas, dolorem expedita? Accusantium ratione ad neque nam fugit dolore
+                            magnam
+                            officia. Facilis consectetur nesciunt officiis sequi soluta nihil impedit alias! Ut non
+                            pariatur
+                            quas vel, quam, totam neque, laborum reiciendis
+                            odit debitis eaque quibusdam maxime aspernatur eveniet aperiam quidem dolorem aut nisi eius.
+                            Ipsam
+                            consequatur eos inventore laborum velit.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col content-box">
+                            <span class="fa fa-desktop fa-fw fa-5x content-icon"></span>
+                        </div>
+                        <div class="col content-box">
+                            <span class="fa fa-language fa-fw fa-5x content-icon"></span>
+                        </div>
+                        <div class="col content-box">
+                            <span class="fa fa-th fa-fw fa-5x content-icon"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="content-desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quidem
+                            aliquam quis reprehenderit
+                            dicta accusamus ipsam rem iste, neque iusto, aperiam quia debitis repellat ex repudiandae
+                            optio
+                            magnam consequatur ut quae dolores sequi numquam saepe ducimus
+                            facere? Aliquid temporibus totam atque culpa! Sed magnam vitae totam vero enim dolor error
+                            est rem
+                            perspiciatis cum impedit iure tempora, quisquam, molestias doloremque a voluptas nulla.
+                            Neque, est
+                            voluptatem repellendus officiis suscipit
+                            ratione in quam maxime eos dolorem labore maiores alias, omnis natus facere quos optio
+                            repudiandae
+                            delectus dolorum culpa! Velit, doloribus eaque architecto atque excepturi quos ullam vitae
+                            accusamus
+                            similique illo minima quidem exercitationem
+                            in, incidunt voluptas, dolorem expedita? Accusantium ratione ad neque nam fugit dolore
+                            magnam
+                            officia. Facilis consectetur nesciunt officiis sequi soluta nihil impedit alias! Ut non
+                            pariatur
+                            quas vel, quam, totam neque, laborum reiciendis
+                            odit debitis eaque quibusdam maxime aspernatur eveniet aperiam quidem dolorem aut nisi eius.
+                            Ipsam
+                            consequatur eos inventore laborum velit.
+                        </p>
+                    </div>
+                </article>
+                <!-- End: Content-Body -->
+
+                <!-- Right Sidebar -->
+                <aside id="secondary-nav" class="secondary-nav">
+                    <ul class="secondary-menu">
+                        <li class="secondary-list-item">
+                            <h3 class="secondary-title">Settings</h3>
+                        </li>
+                        <li class="secondry-group">
+                            <h5 class="secondary-group-title" onclick="callapseData('formMode', 'formModeIcon');">
+                                <span class="fa fa-minus fa-lg fa-fw minus-icon" id="formModeIcon"></span>
+                                <span>form mode option</span>
+                            </h5>
+                            <div class="callapse-card" id="formMode">
+                                <h5 class="secondary-group-sub-title">form mode</h5>
+                                <div class="dropdown-group secondary-dropdown">
+                                    <div class="dropdown inline-dropdown">
+                                        <div class="dropdown-toggle" onclick="toggleDropdown('#dropdownToggle2');">
+                                            <span class="user-label">Inline</span>
+                                            <span class="fa fa-angle-down fa-lg down-icon" id="down-icon"></span>
+                                        </div>
+                                        <div class="dropdown-menu" id="dropdownToggle2">
+                                            <a class="dropdown-item" href="#">Jwan Duncan</a>
+                                            <a class="dropdown-item" href="#">Sally Willis</a>
+                                            <a class="dropdown-item" href="#">Lilly Thronton</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="secondry-group">
+                            <h5 class="secondary-group-title"
+                                onclick="callapseData('publishingOption', 'publishingOptionIcon');">
+                                <span class="fa fa-minus fa-lg fa-fw minus-icon" id="publishingOptionIcon"></span>
+                                <span>publishing options</span>
+                            </h5>
+                            <div class="callapse-card" id="publishingOption">
+                                <h5 class="secondary-group-sub-title">Last saved</h5>
+                                <input type="text" placeholder="" class="form-control" id="datepicker">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" checked="checked" id="publish-checkbox">
+                                    <label for="publish-checkbox" class="checkbox-label">Published</label>
+                                </div>
+                                <h6 class="author-title">Author</h6>
+                                <h5 class="admin-title">admin</h5>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="new-revision-checkbox" disabled>
+                                    <label for="new-revision-checkbox" class="checkbox-label">New revision</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="secondry-group">
+                            <h5 class="secondary-group-title"
+                                onclick="callapseData('provideMenuLink', 'provideMenuLinkIcon');">
+                                <span class="fa fa-minus fa-lg fa-fw minus-icon" id="provideMenuLinkIcon"></span>
+                                <span>menu </span><span class="setting-title">Settings</span>
+                            </h5>
+                            <div class="callapse-card" id="provideMenuLink">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="menulink-checkbox" disabled>
+                                    <label for="menulink-checkbox" class="checkbox-label">Provide a menu link</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="secondry-group">
+                            <h5 class="secondary-group-title"
+                                onclick="callapseData('automaticAlias', 'automaticAliasIcon');">
+                                <span class="fa fa-minus fa-lg fa-fw minus-icon" id="automaticAliasIcon"></span>
+                                <span>url path setting</span>
+                            </h5>
+                            <div class="callapse-card" id="automaticAlias">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="auto-url-checkbox" checked="checked">
+                                    <label for="auto-url-checkbox" class="checkbox-label"><span class="setting-title">
+                                            Generate automatic</span> url <span class="setting-title">alias</span>
+                                        <sup class="fa fa-info-circle"></sup>
+                                    </label>
+
+                                </div>
+                                <input type="text" placeholder="page title value" class="form-control page-title-val"
+                                    name="page-title" id="page-title" disabled>
+                            </div>
+                        </li>
+                        <li class="secondry-group">
+                            <h5 class="secondary-group-title" onclick="callapseData('authorInfo', 'authorInfoIcon');">
+                                <span class="fa fa-minus fa-lg fa-fw minus-icon" id="authorInfoIcon"></span>
+                                <span>authoring information</span>
+                            </h5>
+                            <div class="callapse-card" id="authorInfo">
+                                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            </div>
+                        </li>
+                        <li class="secondry-group">
+                            <h5 class="secondary-group-title"
+                                onclick="callapseData('promotionOption', 'promotionOptionIcon');">
+                                <span class="fa fa-minus fa-lg fa-fw minus-icon" id="promotionOptionIcon"></span>
+                                <span>promotion options</span>
+                            </h5>
+                            <div class="callapse-card" id="promotionOption">
+                                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+                <!-- End: Right Sidebar -->
+            </section>
+            <!-- End: Content-Wrapper -->
+        </main>
+        <!-- End: Wrapper-->
+
+    </section>
+    <!-- End: Main Wrapper-->
 
 </body>
+<!-- https://code.jquery.com/ui/1.12.1/  For Icon detection-->
+<script src="./assets/jquery/jquery-3.4.1.min.js"></script>
+<script src="./assets/js/main.js"></script>
+<script src="./assets/vendor/js/jquery-ui.js"></script>
+
 </html>

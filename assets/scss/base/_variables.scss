@@ -1,0 +1,23 @@
+// All the SCSS Variables goes here
+
+// Font
+$font-base: 'Oxygen', sans-serif;
+$cursive-font-family: 'Saira Stencil One', cursive, sans-serif;
+$font-size: 1rem;
+$font-line-height: 1.5;
+$font-weight: 300;
+
+// Main-Header
+$header-height: 60px;
+
+//Content-Header
+$content-header: 45px;
+
+//Breakpoints
+$breakpoints: (
+  "xl": 1199px,
+  "lg": 1024px,
+  "md": 768px,
+  "sm": 576px,
+  "xs": 320px
+);

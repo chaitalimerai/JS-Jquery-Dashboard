@@ -1,0 +1,87 @@
+/* =============Sidebar=============*/
+
+/* =============Primary Nav=============*/
+#primary-nav {
+  @include hw(100%, null);
+  @include flex-properties(flex, column, null, null, null, null);
+  overflow: auto;
+  flex: 0 0 50px;
+  max-width: 50px;
+  border-right: 1px solid darken($gray, 10%);
+  background-color: lighten($dark, 10%);
+  transition: 0.2s all ease-in-out;
+  .primary-menu {
+    .nav-list-item {
+      margin-left: 10px;
+      opacity: 0;
+    }
+    .nav-link {
+      @include flex-properties(flex, null, null, null, center, null);
+      color: $white;
+      padding: 10px 18px;
+      margin-bottom: 5px;
+      white-space: nowrap;
+      &.active,
+      &:hover,
+      &:active {
+        background-color: $danger;
+        color: $white;
+        .nav-icon {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+/* =============Sub Nav=============*/
+#sub-nav {
+  @include hw(100%, null);
+  @include flex-properties(flex, column, null, null, null, null);
+  overflow: auto;
+  flex: 0 0 270px;
+  @include hw(null, 270px);
+  border-right: 1px solid darken($gray, 10%);
+  background-color: lighten($dark, 10%);
+  position: absolute;
+  left: 50px;
+  transition: 0.2s all ease-in-out;
+  display: none;
+  .sub-menu {
+    padding-bottom: 10px;
+    .nav-title {
+      color: $white;
+    }
+    .menu-list-item {
+      @include flex-properties(flex, null, null, space-between, center, null);
+      padding: 10px 15px;
+      #closeLeftSidebar {
+        cursor: pointer;
+      }
+      .nav-item {
+        color: $white;
+        padding-bottom: 10px;
+      }
+      .search-icon {
+        position: absolute;
+        right: 25px;
+        font-size: 0.875rem;
+        color: $dark;
+      }
+    }
+    .nav-group {
+      @include flex-properties(flex, null, null, null, center, null);
+      padding: 0 15px;
+      color: lighten($dark, 20%);
+      padding-bottom: 5px;
+      .nav-item-img {
+        padding: 20px;
+        background-color: $danger;
+      }
+      .nav-group-title {
+        padding-left: 10px;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.row
+{
+    @include flex-properties(flex, null, null, center, null, null);
+    @media (max-width: map_get($breakpoints, "md")) {
+        @include flex-properties(flex, column, null, null, null, null);
+    }
+}
+.col
+{
+    @include flex-properties(flex, column, null, null, null, null);
+}

@@ -1,0 +1,128 @@
+//Content-Body
+.content-body {
+  @include flex-properties(flex, column, null, null, null, null);
+  @include hw(100%, 100%);
+  padding: 20px;
+  overflow: auto;
+
+  .content-title {
+    font-size: 2em;
+    color: $white;
+    text-align: center;
+  }
+  .content-desc {
+    color: $white;
+    padding-top: 10px;
+  }
+
+  .content-box
+  {
+    padding: 50px 40px;
+    margin: 5px;
+    margin-top: 20px;
+    background-color: $danger;
+    cursor: pointer;
+    &:hover
+    {
+      background-color: lighten($danger, 5%);
+      transform: scale(0.6);
+      transition: 0.5s all ease-in-out;
+    }
+  }
+
+  .content-icon
+  {
+    color: $white;
+  }
+}
+
+//Secondary Nav
+.secondary-nav {
+  @include hw(null, 100%);
+  @include flex-properties(flex, column, null, null, null, null);
+  flex: 0 0 250px;
+  max-width: 250px;
+  background-color: lighten($dark, 10%);
+  border-left: 1px solid $gray;
+  overflow: auto;
+  transition: 0.2s all ease-in-out;
+  @media (max-width: map_get($breakpoints, "md")) {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    box-shadow: 0px 0px 2px $black;
+  }
+  @media (max-width: map_get($breakpoints, "sm")) {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 2px $black;
+  }
+
+  .secondary-list-item {
+    padding: 20px;
+    border-bottom: 1px solid $gray;
+    .secondary-title {
+      font-weight: normal;
+      color: $white;
+      font-family: $font-base;
+    }
+  }
+  .secondry-group {
+    padding: 10px 10px 20px 10px;
+    border-bottom: 1px solid $gray;
+    .callapse-card {
+      padding-left: 5px;
+      display: block;
+    }
+    .minus-icon {
+      font-weight: bolder;
+      color: $white;
+      padding-right: 10px;
+      cursor: pointer;
+    }
+    .secondary-group-title {
+      font-weight: normal;
+      color: $white;
+      text-transform: uppercase;
+      padding-bottom: 5px;
+    }
+    .secondary-group-sub-title {
+      font-weight: normal;
+      color: $white;
+      text-transform: capitalize;
+      padding: 5px 0;
+    }
+    .secondary-dropdown {
+      border: 0;
+    }
+    .inline-dropdown {
+      @include hw(null, 60%);
+    }
+    #datepicker {
+      color: $white;
+    }
+    .author-title {
+      color: $gray;
+    }
+    .admin-title {
+      padding-left: 30px;
+      color: $white;
+      font-weight: normal;
+    }
+    .setting-title {
+      text-transform: capitalize;
+    }
+    .lead {
+      font-size: 13px;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.main-header {
+    height: $header-height;
+    background-color: lighten($dark, 10%);
+    @include flex-properties(flex, null, null, space-between, center, null);
+    padding: 15px;
+    .toggle-bar
+    {
+        color: $danger;
+        cursor: pointer;
+    }
+    .user-profile
+    {
+        border-radius: 50%;
+        height: 30px;
+    }
+}

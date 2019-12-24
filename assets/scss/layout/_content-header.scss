@@ -1,0 +1,76 @@
+//Content-Header
+.content-header {
+  @include flex-properties(flex, null, null, space-between, center, null);
+  height: auto;
+  background-color: $danger;
+  @media (max-width: map_get($breakpoints, "sm")) {
+    @include flex-properties(flex, column, null, null, flex-start, null);
+  }
+  .page-title {
+    @include flex-properties(flex, null, null, null, center, null);
+    border-bottom: 1px solid darken($gray, 10%);
+    @include hw($content-header, null);
+    position: relative;
+    @include hw(null, 100%);
+    @media (max-width: map_get($breakpoints, "md")) {
+      border: 0;
+    }
+    .edit-title {
+      margin-left: 50px;
+      margin-right: 5px;
+      font-size: 22px;
+      color: $white;
+      font-weight: 600;
+      @media (max-width: map_get($breakpoints, "md")) {
+        margin-left: 10px;
+      }
+    }
+  }
+  .title-form-control {
+    border: 0;
+    position: absolute;
+    left: 100px;
+    top: 2px;
+    bottom: 0;
+    right: 0;
+    font-size: 22px;
+    background-color: $danger;
+    @include hw(null, 80%);
+    @media (max-width: map_get($breakpoints, "md")) {
+      left: 60px;
+      @include hw(null, 75%);
+    }
+    &::placeholder {
+      color: $dark;
+    }
+  }
+  .btn-group {
+    @include flex-properties(flex, null, null, null, center, null);
+    border-bottom: 1px solid darken($gray, 10%);
+    @include hw($content-header, null);
+    padding-right: 100px;
+    @media (max-width: map_get($breakpoints, "md")) {
+      padding: 0 10px;
+      width: 100%;
+      border: 0;
+    }
+  }
+  .setting-bar {
+    padding: 0 15px;
+    @include flex-properties(flex, null, null, null, center, null);
+    @include hw(44px, null);
+    background-color: lighten($dark, 20%);
+    margin-left: 25px;
+    cursor: unset;
+    @media (max-width: map_get($breakpoints, "md")) {
+      padding: 0 56;
+      @include hw(27px, null);
+      margin-left: 8px;
+    }
+
+    .setting-icon {
+      color: $white;
+      cursor: pointer;
+    }
+  }
+}

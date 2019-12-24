@@ -1,0 +1,25 @@
+// Button and Textbox styles goes here
+/*=============== Button ===============*/
+.btn {
+  width: 100%;
+  padding: 5px 35px;
+  margin-right: 10px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  cursor: pointer;
+  outline: 0;
+  text-align: center;
+  
+}
+.btn-light {
+  background-color: lighten($dark, 10%);
+  color: $white;
+
+  &:focus,
+  &:hover,
+  &.active {
+    outline: 0;
+    background-color: lighten($dark, 20%);
+    color: $white;
+  }
+}

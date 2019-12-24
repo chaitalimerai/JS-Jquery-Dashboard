@@ -1,0 +1,16 @@
+// All the SCSS mixins goes here
+
+//Flex Properties Mixin
+@mixin flex-properties($flex, $flex-direction, $flex-wrap, $justify-content, $align-items, $align-content) {
+  display: $flex;
+  flex-direction: $flex-direction;
+  flex-wrap: $flex-wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  align-content: $align-content;
+}
+
+@mixin hw($height, $width) {
+  height: $height;
+  width: $width;
+}

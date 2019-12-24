@@ -1,0 +1,29 @@
+.form-control {
+  @include hw(null, 100%);
+  padding: 8px;
+  position: relative;
+  border: 1px solid $gray;
+  &::placeholder {
+    color: lighten($dark, 20%);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  &.page-title-val::placeholder
+  {
+    background-color: lighten($gray, 15%);
+    color: lighten($dark, 40%);
+  }
+}
+
+//Custom Checkbox
+.checkbox-group {
+  @include flex-properties(flex, null, null, null, center, null);
+  padding: 5px 0;
+}
+
+.checkbox-label {
+  padding-left: 10px;
+  cursor: unset;
+  font-size: 12px;
+  color: $white;
+}
